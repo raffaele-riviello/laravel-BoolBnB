@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    align-items: center;
+    height: 900px;
+    .form-inline {
+        display: flex;
+        justify-content: center;
+        .form-control {
+            width: 80%;
+        }
+    }
+}

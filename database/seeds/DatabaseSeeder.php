@@ -15,5 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(FeaturesTableSeeder::class);
         $this->call(ServicesTableSeeder::class);
         $this->call(ApartamentsTableSeeder::class);
+        $this->call(MessagesTableSeeder::class);
+        $this->call(PhotosTableSeeder::class);
+        $this->call(InfoUserTableSeeder::class);
     }
 }
