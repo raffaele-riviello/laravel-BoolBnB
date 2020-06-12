@@ -28,3 +28,15 @@ Route::get('/dashboard', function () {
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::namespace('Admin')
+->name('admin.')
+->prefix('admin')
+->middleware('auth')
+->group(function (){
+    Route::resource('apartaments', 'ApartamentController');
+    Route::resource('photos', 'PhotoController');
+    Route::resource('features', 'FeatureController');
+    Route::resource('messages', 'MessageController');
+    Route::resource('services', 'ServiceController');
+});
