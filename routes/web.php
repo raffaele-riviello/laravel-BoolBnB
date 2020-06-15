@@ -35,8 +35,8 @@ Route::namespace('Admin')
 ->middleware('auth')
 ->group(function (){
     Route::resource('apartaments', 'ApartamentController');
-    Route::resource('photos', 'PhotoController');
-    Route::resource('features', 'FeatureController');
-    Route::resource('messages', 'MessageController');
-    Route::resource('services', 'ServiceController');
+    // Route::resource('photos', 'PhotoController');
+    // Route::resource('features', 'FeatureController');
+    // Route::resource('messages', 'MessageController');
+    // Route::resource('services', 'ServiceController');
 });
