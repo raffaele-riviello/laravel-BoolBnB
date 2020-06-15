@@ -7,6 +7,12 @@
           @foreach ($errors->all() as $message)
               {{$message}}
           @endforeach
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{{ url('/home') }}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Apartaments</li>
+            </ol>
+          </nav>
           <form action="{{route('admin.apartaments.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
