@@ -23,7 +23,8 @@
             <div class="form-group">
               {{-- ricordarci il ckeditor --}}
               <label for="description">Descrizione</label>
-              <input type="text" name="description" id="description" class="form-control">
+              {{-- <input type="text" name="description" id="description" class="form-control"> --}}
+              <textarea id="editor" name="description" rows="8" cols="80" class="form-control"></textarea>
             </div>
             <div class="form-group">
               <label for="cover_img">Fotografia principale</label>
