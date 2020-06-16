@@ -10954,3 +10954,21 @@ a.text-dark:focus {
   }
 }
 
+main img {
+  width: 500px;
+}
+
+main .row {
+  padding-top: 30px;
+}
+
+main .row .room-info #info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 5px;
+}
+
+.no-padding {
+  padding: 0;
+}
+

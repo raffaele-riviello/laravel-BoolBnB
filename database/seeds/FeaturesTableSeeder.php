@@ -6,6 +6,8 @@ use App\Feature;
 
 use Faker\Generator as Faker;
 
+
+
 class FeaturesTableSeeder extends Seeder
 {
     /**
@@ -15,12 +17,26 @@ class FeaturesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 8; $i++) {
-          $feature = new Feature;
-          $feature->name = $faker->word();
-          $feature->description = $faker->sentence(4, true);
 
-          $feature->save();
-        }
+      $caratteristiche = [
+        'Pulito e ordinato',
+        'Ottima comunicazione',
+        'Cancellazione gratuita',
+        'Casa indipendente',
+        'Stanza singola',
+        'Ristrutturazione recente',
+        'Colazione inclusa',
+        'Comodamente servita',
+        'Facilmente raggiungibile',
+        'Vista mare'
+      ];
+
+      foreach ($caratteristiche as $caratteristica) {
+        $feature = new Feature;
+        $feature->name = $caratteristica;
+        $feature->description = $faker->sentence(4, true);
+
+        $feature->save();
+      }
     }
 }
