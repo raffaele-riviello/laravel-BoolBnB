@@ -15,6 +15,12 @@
                     @endif
 
                     You are logged in!
+
+                    <ul class="nav justify-content-center">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{{route('admin.apartaments.create')}}">Aggiungi Appartamento</a>
+                      </li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -37,8 +37,7 @@ class ApartamentController extends Controller
         $user = Auth::id();
 
         // --------li filtro in base allo user autenticato--------
-        $apartaments = Apartament::where('user_id', $user)
-        ->get();
+        $apartaments = Apartament::where('user_id', $user)->paginate(10);
         // --------li filtro in base allo user autenticato--------
 
         // dd($apartaments);
@@ -146,8 +145,9 @@ class ApartamentController extends Controller
         $userId = Auth::id();
         $owner = $apartament->user_id;
 
+
         // Controllo se l'utente loggato ha l'autorizzazione per modificare l'appartamento in questione
-        if ($userId != $author) {
+        if ($userId != $owner) {
           dd('Non sei autorizzato a modificare questo appartamento');
         }
         // Controllo se l'utente loggato ha l'autorizzazione per modificare l'appartamento in questione
@@ -159,9 +159,9 @@ class ApartamentController extends Controller
         }
 
         //----------Sincronizzo la tabella pivot----------
-        $apartament->features()->sync($data['features']);
-        $apartament->photos()->sync($data['photos']);
-        $apartament->services()->sync($data['services']);
+        // $apartament->features()->sync($data['features']);
+        // $apartament->photos()->sync($data['photos']);
+        // $apartament->services()->sync($data['services']);
         //----------Sincronizzo la tabella pivot----------
                               // ^ //
                               // | //
@@ -185,9 +185,9 @@ class ApartamentController extends Controller
         $apartament = Apartament::findOrFail($id);
 
         // vado a cancellare anche tutti i collegamenti nelle tabelle pivot
-        $apartament->features()->detach();
-        $apartament->photos()->detach();
-        $apartament->services()->detach();
+        // $apartament->features()->detach();
+        // $apartament->photos()->detach();
+        // $apartament->services()->detach();
         // vado a cancellare anche tutti i collegamenti nelle tabelle pivot
 
         $deleted = $apartament->delete();

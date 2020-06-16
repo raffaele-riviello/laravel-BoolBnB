@@ -41,15 +41,18 @@
               <label for="beds_number">Numero di letti</label>
               <input type="number" name="beds_number" class="form-control">
             </div>
-            <div class="form-group">
               <!-- Default switch -->
                 {{-- <div class="custom-control custom-switch">
                   <input type="checkbox" class="custom-control-input" id="customSwitches" name="visible">
                   <label class="custom-control-label" for="customSwitches" value="1">Visible</label>
                 </div> --}}
-                <input type="checkbox" name="visible" class="switch-input" value="1"/>
-                <label for="visible">Visible</label>
-            </div>
+              <div class="form-group" >
+                <label for="visible">Visible/Hidden</label>
+                <select class="form-control" id="visible" name="visible">
+                  <option value="1">Visible</option>
+                  <option value="0">Hidden</option>
+                </select>
+              </div>
             <div class="form-group">
               <label for="size">Dimensioni</label>
               <input type="number" name="size" class="form-control">
