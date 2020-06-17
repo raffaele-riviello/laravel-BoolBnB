@@ -74,16 +74,23 @@
               <label for="longitude">Longitudine</label>
               <input type="number" step="0.01" name="longitude" class="form-control" value="555" readonly="readonly">
             </div>
-            {{-- <div class="form-group">
-              <h3>Tags</h3>
-              @foreach ($tags as $tag)
-              <label for="tags-{{$tag->id}}">{{$tag->name}}</label>
-              <input type="checkbox" name="tags[]" id="tags-{{$tag->id}}" value="{{$tag->id}}">
+            <div class="form-group">
+              <h3>Caratteristiche</h3>
+              @foreach ($features as $feature)
+              <label for="features-{{$feature->id}}">{{$feature->name}}</label>
+              <input type="checkbox" name="features[]" id="features-{{$feature->id}}" value="{{$feature->id}}">
                 @endforeach
             </div>
             <div class="form-group">
-              <h3>Photos</h3>
+              <h3>Servizi</h3>
+              @foreach ($services as $service)
+              <label for="services-{{$service->id}}">{{$service->name}}</label>
+              <input type="checkbox" name="services[]" id="services-{{$service->id}}" value="{{$service->id}}">
+                @endforeach
+            </div>
 
+            {{-- <div class="form-group">
+              <h3>Photos</h3>
               @foreach ($photos as $photo)
               <label for="photos-{{$photo->id}}">{{$photo->name}}</label>
               <input type="checkbox" name="photos[]" id="photos-{{$photo->id}}" value="{{$photo->id}}">

@@ -91,9 +91,9 @@ class ApartamentController extends Controller
         }
 
         // Ricordarci di compilare anche le tabelle pivot, ma sempre dopo aver "fillato"
-        // $apartament->features()->attach($data['features']);
+        $apartament->features()->attach($data['features']);
         // $apartament->photos()->attach($data['photos']);
-        // $apartament->services()->attach($data['services']);
+        $apartament->services()->attach($data['services']);
         // Ricordarci di compilare anche le tabelle pivot, ma sempre dopo aver "fillato"
 
         return redirect()->route('admin.apartaments.show', $apartament->id);
