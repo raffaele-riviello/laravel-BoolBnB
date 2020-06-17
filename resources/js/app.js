@@ -1,7 +1,11 @@
+const $ = require('jquery');
 require('./bootstrap');
 
+// importiamo TomTom
+import tt from '@tomtom-international/web-sdk-maps';
 
 $(document).ready(function () {
+
 
   var ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
 
@@ -44,37 +48,30 @@ $(document).ready(function () {
 
         var lan = document.getElementById('#latitudine').innerHTML;
         var lng = document.getElementById('#longitudine').innerHTML;
-        console.log(lng);
-        maps(lan, lng);
-
-      // function maps(lan, lng) {
-      //       // openstreetmaps
-      //       // // Where you want to render the map.
-      //       var element = document.getElementById('osm-map');
-      //
-      //       // Height has to be set. You can do this in CSS too.
-      //       element.style = 'height:300px;';
-      //
-      //       // Create Leaflet map on map element.
-      //       var map = L.map(element);
-      //
-      //       // Add OSM tile leayer to the Leaflet map.
-      //       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      //           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      //       }).addTo(map);
-      //
-      //       // Target's GPS coordinates.
-      //       var target = L.latLng(lan, lng);
-      //
-      //       // Set map's center to target with zoom 14.
-      //       map.setView(target, 20);
-      //
-      //       // Place a marker on the same location.
-      //       L.marker(target).addTo(map);
-      //   }
-
-
-
     })();
+
+    // TomTom
+
+    // ↓ creiamo mappa utilizzando TomTom, se esiste un elemento con id=“map”
+    if ($('#map').length > 0) {
+        var coordinates = [$('#map').attr('data-long'), $('#map').attr('data-lat')];
+        var map = tt.map({
+            container: 'map',
+            key: 'NtUp4DmwT1bPEtVLQLvvgSS5bm6eO9uA',
+            style: 'tomtom://vector/1/basic-main',
+            center: coordinates,
+            zoom: 15,
+            pitch: 45
+        });
+        map.addControl(new tt.NavigationControl());
+        // Puntature
+        var element = document.createElement('div');
+        element.id = 'marker';
+        var marker = new tt.Marker({
+            element: element,
+        });
+        marker.setLngLat(coordinates).addTo(map);
+    };
+    // ↑ creiamo mappa utilizzando TomTom, se esiste un elemento con id=“map”
 
 });

@@ -159,9 +159,9 @@ class ApartamentController extends Controller
         }
 
         //----------Sincronizzo la tabella pivot----------
-        // $apartament->features()->sync($data['features']);
+        $apartament->features()->sync($data['features']);
         // $apartament->photos()->sync($data['photos']);
-        // $apartament->services()->sync($data['services']);
+        $apartament->services()->sync($data['services']);
         //----------Sincronizzo la tabella pivot----------
                               // ^ //
                               // | //

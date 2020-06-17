@@ -50,14 +50,16 @@
                 <div> <p id="latitudine">{{$apartament->latitude}}</p>  </div>
                 <div> <p id="longitudine">{{$apartament->longitude}}</p>  </div>
               </div>
-              <div class="row">
-                <div id="osm-map">
-                    
-                </div>
-
-              </div>
             </div>
           </div>
+        </div>
+        <div class="row">
+          <section class="apartament-map">
+             <h5 class="apartament-features-title my-4">Mappa</h5>
+             <div id="map" data-long="{{$apartament->longitude}}" data-lat="{{$apartament->latitude}}">
+
+             </div>
+          </section>
         </div>
       </div>
     </div>
