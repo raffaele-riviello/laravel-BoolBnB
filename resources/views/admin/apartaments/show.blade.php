@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -46,6 +47,14 @@
                 <div> <p>Numero letti: {{$apartament->beds_number}}</p>  </div>
                 <div> <p>Dimensioni: {{$apartament->size}}mq</p>  </div>
                 <div> <p>Prezzo: {{$apartament->price}}€</p>  </div>
+                <div> <p id="latitudine">{{$apartament->latitude}}</p>  </div>
+                <div> <p id="longitudine">{{$apartament->longitude}}</p>  </div>
+              </div>
+              <div class="row">
+                <div id="osm-map">
+                    
+                </div>
+
               </div>
             </div>
           </div>
