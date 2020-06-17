@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-build-classic": "^19.0.2"
+        "@ckeditor/ckeditor5-build-classic": "^19.0.2",
+        "places.js": "^1.19.0"
     }
 }

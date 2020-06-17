@@ -60,19 +60,37 @@
             </div>
             <div class="form-group">
               <label for="address">Indirizzo</label>
-              <input type="text" name="address" class="form-control">
+              <input type="search" class="form-control" id="form-address" placeholder="Inserisci il tuo indirizzo"/>
+            </div>
+            <div class="form-group">
+              <label for="form-address2">Nome Strada</label>
+              <input type="text" class="form-control" id="form-address2" placeholder="Inserisci il nome della strada. Esempio: Via Roma" />
+            </div>
+            <div class="form-group">
+              <label for="numero-civico">Numero Civico</label>
+              <input type="text" class="form-control" id="numero-civico" placeholder="Numero civico" />
+            </div>
+            <div class="form-group">
+              <label for="form-city">Città</label>
+              <input type="text" class="form-control" id="form-city" placeholder="Città" />
+            </div>
+            <div class="form-group">
+              <label for="form-zip">Codice Postale</label>
+              <input type="text" class="form-control" id="form-zip" placeholder="Codice Postale" />
+            </div>
+            <div class="form-group">
+              <label for="address">Indirizzo Completo</label>
+              <input type="text" name="address" id="full-address" class="form-control" readonly="readonly">
             </div>
             <div class="form-group">
               <label for="price">Prezzo</label>
               <input type="number" step="0.01" name="price" class="form-control">
             </div>
             <div class="form-group">
-              <label for="latitude">Latitudine</label>
-              <input type="number" step="0.01" name="latitude" class="form-control" value="335" readonly="readonly">
+              <input type="hidden" id="form-lat" step="0.01" name="latitude" class="form-control">
             </div>
             <div class="form-group">
-              <label for="longitude">Longitudine</label>
-              <input type="number" step="0.01" name="longitude" class="form-control" value="555" readonly="readonly">
+              <input type="hidden" id="form-lng" step="0.01" name="longitude" class="form-control">
             </div>
             <div class="form-group">
               <h3>Caratteristiche</h3>
@@ -98,6 +116,7 @@
               <label for="photo">Fotografia</label>
               <input type="file" name="photo" id="photo">
             </div> --}}
+
             <input type="submit" value="Salva" class="btn btn-primary">
           </form>
         </div>
