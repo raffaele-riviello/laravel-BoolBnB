@@ -24,7 +24,7 @@
               {{-- ricordarci il ckeditor --}}
               <label for="description">Descrizione</label>
               {{-- <input type="text" name="description" id="description" class="form-control" value="{{old('description') ?? $apartament->description}}"> --}}
-              <textarea id="editor" name="description" rows="8" cols="80" class="form-control" value="{{old('description') ?? $apartament->description}}"></textarea>
+              <textarea id="editor" name="description" rows="8" cols="80" class="form-control">{{old('description') ?? $apartament->description}}</textarea>
             </div>
             <div class="form-group">
               <label for="cover_img">Fotografia principale</label>
@@ -80,23 +80,75 @@
               <label for="longitude">Longitudine</label>
               <input type="number" step="0.01" name="longitude" class="form-control" value="555" readonly="readonly">
             </div>
-            {{-- <div class="form-group">
-              <h3>Tags</h3>
-              @foreach ($tags as $tag)
-              <label for="tags-{{$tag->id}}">{{$tag->name}}</label>
-              <input type="checkbox" name="tags[]" id="tags-{{$tag->id}}" value="{{$tag->id}}">
-                @endforeach
-            </div>
-            <div class="form-group">
-              <h3>Photos</h3>
 
-              @foreach ($photos as $photo)
-              <label for="photos-{{$photo->id}}">{{$photo->name}}</label>
-              <input type="checkbox" name="photos[]" id="photos-{{$photo->id}}" value="{{$photo->id}}">
+            <div class="form-group">
+              <fieldset>
+                <legend>Caratteristiche</legend>
+                @foreach ($features as $feature)
+                <div class="form-check form-check-inline">
+
+                  @if(is_array( old('features')))
+                      <input class="form-check-input"  type="checkbox" name="features[]" id="feature{{$feature['id']}}" value="{{$feature['id']}}"
+                      {{
+                        (in_array($feature['id'],   old('features')))
+
+                        ? 'checked' : ''
+                      }}
+                      >
+                  @else
+                    <input class="form-check-input"  type="checkbox" name="features[]" id="feature{{$feature['id']}}" value="{{$feature['id']}}"
+                      {{
+                        ($apartament->features->contains($feature['id']))
+
+                        ? 'checked' : ''
+                      }}
+                       >
+                  @endif
+
+                  <label class="form-check-label" for="feature{{$feature['id']}}">{{$feature['name']}}</label>
+              </div>
               @endforeach
-              <label for="photo">Fotografia</label>
-              <input type="file" name="photo" id="photo">
-            </div> --}}
+              @error('features')
+                <small class="form-text">Errore</small>
+              @enderror
+              </fieldset>
+            </div>
+
+            <div class="form-group">
+              <fieldset>
+                <legend>Servizi</legend>
+                @foreach ($services as $service)
+                <div class="form-check form-check-inline">
+
+                  @if(is_array( old('services')))
+                      <input class="form-check-input"  type="checkbox" name="services[]" id="feature{{$service['id']}}" value="{{$service['id']}}"
+                      {{
+                        (in_array($service['id'],   old('services')))
+
+                        ? 'checked' : ''
+                      }}
+                      >
+                  @else
+                    <input class="form-check-input"  type="checkbox" name="services[]" id="service{{$service['id']}}" value="{{$service['id']}}"
+                      {{
+                        ($apartament->services->contains($service['id']))
+
+                        ? 'checked' : ''
+                      }}
+                       >
+                  @endif
+
+                  <label class="form-check-label" for="service{{$service['id']}}">{{$service['name']}}</label>
+              </div>
+              @endforeach
+              @error('services')
+                <small class="form-text">Errore</small>
+              @enderror
+              </fieldset>
+            </div>
+
+
+
             <input type="submit" value="Salva" class="btn btn-primary">
           </form>
         </div>
