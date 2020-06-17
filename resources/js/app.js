@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 
   var ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
-
+  
   ClassicEditor
       .create( document.querySelector( '#editor' ) )
       .then( editor => {
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 //----------------------Script Algolia---------------------//
     var places = require('places.js');
-
+    
     (function () {
       var placesAutocomplete = places({
         appId: 'plLTIEYNEOEF',
@@ -41,11 +41,11 @@ $(document).ready(function () {
         document.querySelector('#form-zip').value = e.suggestion.postcode || '';
         document.querySelector('#form-lat').value = e.suggestion.latlng.lat || '';
         document.querySelector('#form-lng').value = e.suggestion.latlng.lng || '';
-
+    
         document.querySelector('#full-address').value = e.suggestion.name + ', ' + document.querySelector('#numero-civico').value + ', ' + e.suggestion.city + ', ' + e.suggestion.postcode;
           console.log(document.querySelector('#form-address2').value);
       });
-
+    
         var lan = document.getElementById('#latitudine').innerHTML;
         var lng = document.getElementById('#longitudine').innerHTML;
     })();
