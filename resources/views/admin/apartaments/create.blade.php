@@ -87,10 +87,10 @@
               <input type="number" step="0.01" name="price" class="form-control">
             </div>
             <div class="form-group">
-              <input type="hidden" id="form-lat" step="0.01" name="latitude" class="form-control">
+              <input type="text" id="form-lat" step="0.01" name="latitude" class="form-control">
             </div>
             <div class="form-group">
-              <input type="hidden" id="form-lng" step="0.01" name="longitude" class="form-control">
+              <input type="text" id="form-lng" step="0.01" name="longitude" class="form-control">
             </div>
             <div class="form-group">
               <h3>Caratteristiche</h3>
