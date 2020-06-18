@@ -56,9 +56,9 @@
         <div class="row">
           <section class="apartament-map">
              <h5 class="apartament-features-title my-4">Mappa</h5>
-             <div id="map" data-long="{{$apartament->longitude}}" data-lat="{{$apartament->latitude}}">
-             </div>
-             <iframe width="800" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openlinkmap.org/small.php?layers=M&lat={{$apartament->latitude}}&lon={{$apartament->longitude}}&zoom=18" style="border: 1px solid black"></iframe>
+             {{-- <div id="map" data-long="12.4764" data-lat="41.9107">        </div> --}}
+             <div id="map" data-long="{{$apartament->longitude}}" data-lat="{{$apartament->latitude}}">        </div>
+             {{-- <iframe width="800" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openlinkmap.org/small.php?layers=M&lat={{$apartament->latitude}}&lon={{$apartament->longitude}}&zoom=18" style="border: 1px solid black"></iframe> --}}
           </section>
         </div>
       </div>

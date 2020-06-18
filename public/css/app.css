@@ -10954,6 +10954,12 @@ a.text-dark:focus {
   }
 }
 
+.mapboxgl-canvas {
+  position: relative;
+  width: 800px;
+  margin: 0 auto;
+}
+
 main img {
   width: 500px;
 }
