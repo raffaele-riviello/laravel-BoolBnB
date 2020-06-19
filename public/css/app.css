@@ -10954,10 +10954,16 @@ a.text-dark:focus {
   }
 }
 
-.mapboxgl-canvas {
-  position: relative;
+#map {
+  height: 400px;
   width: 800px;
-  margin: 0 auto;
+}
+
+.mapboxgl-marker {
+  width: 15px;
+  height: 15px;
+  background: red;
+  border-radius: 50%;
 }
 
 main img {

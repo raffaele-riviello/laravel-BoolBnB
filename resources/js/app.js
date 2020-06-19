@@ -4,12 +4,10 @@ const $ = require('jquery');
 $(document).ready(function () {
     require('./bootstrap');
 
+    require('./ckeditor');
     require('./maps_tomtom');
 
-    // require('./ckeditor');
-
-    // require('./address_algolia');
-
+    require('./address_algolia');
 
 
 });
