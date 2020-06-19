@@ -13,17 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
+// ------------rotte guests------------
 Route::get('/home', function () {
     return view('home');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// });
+// ------------appartamenti------------
+Route::get('/results', 'GuestApartamentController@index')->name('results');
+Route::get('/apartaments/{id}', 'GuestApartamentController@show')->name('results.apartament');
+// ------------appartamenti------------
+
+// --------------messaggi--------------
+Route::resource('messages', 'MessageController');
+// --------------messaggi--------------
+
+// ------------rotte guests------------
 
 Auth::routes();
 

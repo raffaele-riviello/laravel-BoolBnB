@@ -1,12 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+// ---------importo i model che mi servono---------
+use Illuminate\Support\Facades\Auth;
+use App\Apartament;
+use App\Message;
+use App\User;
+// ---------importo i model che mi servono---------
 
 class MessageController extends Controller
 {
+
+  public function __construct()
+  {
+
+     $this->middleware('auth')->except('store');
+
+  }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +49,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
