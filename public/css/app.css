@@ -10954,6 +10954,18 @@ a.text-dark:focus {
   }
 }
 
+#map {
+  height: 400px;
+  width: 800px;
+}
+
+.mapboxgl-marker {
+  width: 15px;
+  height: 15px;
+  background: red;
+  border-radius: 50%;
+}
+
 main img {
   width: 500px;
 }

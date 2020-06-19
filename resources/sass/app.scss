@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import '~@tomtom-international/web-sdk-maps/dist/maps.css';
+// @import url('https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.57.0/maps/maps.css');
 
 @import '_reset';
 @import '_variables';
@@ -12,8 +14,18 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-@import '~@tomtom-international/web-sdk-maps/dist/maps.css';
 
+//mappa
+#map {
+    height: 400px;
+    width: 800px;
+}
+.mapboxgl-marker {
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50%;
+}
 // -------------temporaneo-------------
 main{
   img{
