@@ -10955,8 +10955,8 @@ a.text-dark:focus {
 }
 
 #map {
-  height: 400px;
-  width: 800px;
+  height: 300px;
+  width: 450px;
 }
 
 .mapboxgl-marker {

@@ -24,6 +24,8 @@ class MessagesTableSeeder extends Seeder
           $message = new Message;
           $message->message = $faker->sentence(20, true);
           $message->apartament_id = $apartament->id;
+          $message->name = $faker->name();
+          $message->email = $faker->email();          
 
           $message->save();
         }

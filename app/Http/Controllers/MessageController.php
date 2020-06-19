@@ -28,7 +28,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Auth::user()->apartaments()->with('messages')->get()->pluck('messages')->flatten();
+
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
@@ -49,7 +51,20 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
+        // $id = $request->route('id');
+        $data = $request->all();
+        $message = new Message;
+        $message->apartament_id = $data['apartamentid'];
+        $message->name = $data['name'];
+        $message->email = $data['email'];
+        $message->message = $data['message'];
+
+        $saved = $message->save();
+
+        if($saved) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -60,7 +75,9 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        //
+        $message = Message::findOrFail($id);
+
+        return view('admin.messages.show', compact('message'));
     }
 
     /**
