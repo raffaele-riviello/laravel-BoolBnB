@@ -50,7 +50,7 @@
                     {{-- parte sponsorizzazione --}}
                     <td>
                       @if(!(\App\Cart::where(['apartament_id' => $apartament->id])->first()))
-                        <input class="btn btn-success" value="Sponsorizza">
+                        <a href="{{route('admin.cart.apartament', $apartament->id)}}"><input class="btn btn-success" value="Sponsorizza"></a>
                       @else
                         <input disabled class="btn btn-success" value="Sponsorizzato">
                       @endif

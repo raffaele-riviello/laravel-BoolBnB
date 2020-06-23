@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +15,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/welcome', function () {
 
-        $gateway = new Braintree\Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-    ]);
-    $token = $gateway->ClientToken()->generate();
-    return view('welcome', compact('token'));
-});
 
 Route::post('/checkout', function(Request $request) {
 
@@ -42,11 +33,11 @@ Route::post('/checkout', function(Request $request) {
     $result = $gateway->transaction()->sale([
         'amount' => $amount,
         'paymentMethodNonce' => $nonce,
-        'customer' => [
-            'firstName' => 'Luca',
-            'lastName' => 'Marconi',
-            'email' => 'luca@gmail.it',
-        ],
+        // 'customer' => [
+        //     'firstName' => 'Luca',
+        //     'lastName' => 'Marconi',
+        //     'email' => 'luca@gmail.it',
+        // ],
         'options' => [
             'submitForSettlement' => true
         ]
@@ -55,7 +46,16 @@ Route::post('/checkout', function(Request $request) {
 if ($result->success) {
     $transaction = $result->transaction;
     // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
-    return back()->with('success_message', 'Transaction successful. The ID is:' . $transaction->id);
+    $cart = new Cart;
+    $cart->advertising_id = $request->advertisingid;
+    $cart->apartament_id = $request->apartamentid;
+    $cart->transaction = $transaction->id;
+    $cart->start = $request->start;
+    $cart->end = $request->end;
+
+    $cart->save();
+    // return back()->with('success_message', 'Transaction successful. The ID is:' . $transaction->id);
+    return redirect('admin/apartaments');
 } else {
     $errorString = "";
 
@@ -99,4 +99,15 @@ Route::namespace('Admin')
     // Route::resource('features', 'FeatureController');
     // Route::resource('messages', 'MessageController');
     // Route::resource('services', 'ServiceController');
+    Route::get('/cart/{id}', function ($id) {
+
+            $gateway = new Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+        $token = $gateway->ClientToken()->generate();
+        return view('admin.apartaments.cart', compact('token'));
+    })->name('cart.apartament');
 });
