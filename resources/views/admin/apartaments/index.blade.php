@@ -22,7 +22,7 @@
                 <th>Prezzo</th>
                 <th>Indirizzo</th>
                 <th>Visible</th>
-                <th colspan="3">Azioni</th>
+                <th colspan="4">Azioni</th>
               </tr>
             </thead>
             <tbody>
@@ -47,6 +47,15 @@
                       </form>
                       @endif
                     </td>
+                    {{-- parte sponsorizzazione --}}
+                    <td>
+                      @if(!(\App\Cart::where(['apartament_id' => $apartament->id])->first()))
+                        <input class="btn btn-success" value="Sponsorizza">
+                      @else
+                        <input disabled class="btn btn-success" value="Sponsorizzato">
+                      @endif
+                    </td>
+                    {{-- parte sponsorizzazione --}}
                   </tr>
               @endforeach
             </tbody>

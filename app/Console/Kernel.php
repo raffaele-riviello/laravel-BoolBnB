@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\CheckSponsorizzate::class,
     ];
 
     /**
@@ -24,6 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+      $schedule->command('check:sponsorizzate')
+            ->everyMinute();
         // $schedule->command('inspire')->hourly();
     }
 
