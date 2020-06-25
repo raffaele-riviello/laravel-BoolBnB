@@ -37,7 +37,7 @@ $(".owl-carousel").owlCarousel({
                   items: 4,
                   margin: 15,
                   loop: true,
-                  // center: true,
+                  center: true,
                   dots: false,
                   autoWidth:true,
                   // nav: true,

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Cart;
+use App\Apartament;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,11 +72,17 @@ if ($result->success) {
 
 // ------------rotte guests------------
 Route::get('/home', function () {
-    return view('home');
+
+    $appartamentiSponsorizzati = Apartament::has('carts')->get();
+
+    return view('home', compact('appartamentiSponsorizzati'));
 })->name('home');
 
 Route::get('/', function () {
-    return view('home');
+
+  $appartamentiSponsorizzati = Apartament::has('carts')->get();
+
+    return view('home', compact('appartamentiSponsorizzati'));
 })->name('home');
 
 // ------------appartamenti------------

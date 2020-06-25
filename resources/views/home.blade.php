@@ -45,14 +45,19 @@
           <!-- <i class="fa fa-angle-right owl-next" aria-hidden="true"></i> -->
           <!-- navigazione owl -->
           <div class="owl-carousel">
-            <div class="card">Appartamento</div>
-            <div class="card">Appartamento</div>
-            <div class="card">Appartamento</div>
-            <div class="card">Appartamento</div>
-            <div class="card">Appartamento</div>
-            <div class="card">Appartamento</div>
-            <div class="card">Appartamento</div>
-            <div class="card">Appartamento</div>
+            @foreach ($appartamentiSponsorizzati as $appartamentoSponsorizzato)
+              <a href="{{route('results.apartament', $appartamentoSponsorizzato->id)}}">
+                <div class="card-home">
+                  <div class="cover">
+                    <img src="{{$appartamentoSponsorizzato->cover_img}}" alt="">
+                  </div>
+                  <div class="descrizione">
+                    <h4>{{$appartamentoSponsorizzato->title}}</h4>
+                    <p>{{$appartamentoSponsorizzato->address}}</p>
+                  </div>
+                </div>
+              </a>
+            @endforeach
           </div>
         </div>
       </div>
@@ -60,6 +65,10 @@
       <input name="address" class="form-control mr-sm-2" type="search" placeholder="Dove vuoi andare?" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
     </form> --}}
+@endsection
+
+@section('footer')
+  @include('partials.footer')
 @endsection
 
 @section('svg')

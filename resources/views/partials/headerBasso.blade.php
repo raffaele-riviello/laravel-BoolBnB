@@ -57,7 +57,7 @@
     </div>
   </div>
 
-    <header>
+    <header class="basso">
       <div class="container">
         <div class="upper-header">
           <div id="logo">
@@ -116,23 +116,6 @@
           @endguest
             </ul>
           </nav>
-        </div>
-
-        <div class="banner">
-          <div class="left">
-            <h1>I migliori immobili a portata di click</h1>
-            <p>BoolBnB ti aiuta a trovare le migliori soluzioni di alloggio</p>
-            <div class="cta clearfix">
-              <button class="btn-base" type="button" name="button"> <img src="{{asset('/img/google.svg')}}" alt=""> Sign up with Google</button>
-              <p>or</p>
-              <button class="btn-base" type="button" name="button"> <img src="{{asset('/img/slack.svg')}}" alt=""> Sign up with Slack</button>
-            </div>
-            <a href="#">or use your email address <i class="fas fa-arrow-right"></i></a>
-          </div>
-
-          <div class="right">
-            <img src="{{asset('/img/banner-img.jpg')}}" alt="">
-          </div>
         </div>
 
       </div>
