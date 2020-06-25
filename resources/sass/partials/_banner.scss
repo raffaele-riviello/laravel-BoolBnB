@@ -1,0 +1,57 @@
+.banner{
+  height: calc(100vh - 75px);
+  padding: 150px 0;
+  .left{
+    width: 50%;
+    height: 100%;
+    float: left;
+    padding-top: 25px;
+    padding-right: 80px;
+    h1{
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    p{
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
+    .cta{
+      width: 100%;
+      margin-bottom: 20px;
+      button{
+        float: left;
+        background: $buttons_color;
+        color: $primary_color_1;
+        &:hover{
+          background: $buttons_color_hover;
+        }
+      }
+      p{
+        float: left;
+        font-size: 12px;
+        margin: 0 20px;
+        line-height: 35px;
+      }
+    }
+    a{
+      i{
+        font-size: 12px;
+      }
+    }
+  }
+  .right{
+    width: 50%;
+    height: 100%;
+    float: right;
+    img{
+      width: 600px;
+      mask-image: -webkit-gradient(linear, right bottom, left top,
+            color-stop(0.00,  rgba(0,0,0,1)),
+            color-stop(0.35,  rgba(0,0,0,1)),
+            color-stop(0.80,  rgba(0,0,0,0)),
+            color-stop(0.70,  rgba(0,0,0,0)),
+            color-stop(1.00,  rgba(0,0,0,0)));
+    }
+  }
+}

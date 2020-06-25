@@ -72,7 +72,11 @@ if ($result->success) {
 // ------------rotte guests------------
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
+
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
 // ------------appartamenti------------
 Route::get('/results', 'GuestApartamentController@index')->name('results');

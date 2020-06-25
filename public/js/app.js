@@ -47757,6 +47757,8 @@ var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/inde
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
+  __webpack_require__(/*! ./js_header */ "./resources/js/js_header.js");
+
   __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
   __webpack_require__(/*! ./ckeditor */ "./resources/js/ckeditor.js");
@@ -47830,6 +47832,54 @@ ClassicEditor.create(document.querySelector('#editor')).then(function (editor) {
 
 /***/ }),
 
+/***/ "./resources/js/js_header.js":
+/*!***********************************!*\
+  !*** ./resources/js/js_header.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// --------------------HEADER ONSCROLL--------------------
+var navTop = $("header");
+var navMain = $(".hidden-header");
+
+window.onscroll = function sticky() {
+  if (window.pageYOffset > navMain[0].offsetTop) {
+    navTop[0].classList.add("hd"); // $("header").css("margin-top", "10px");
+
+    navMain[0].classList.remove("hd");
+  } else {
+    navTop[0].classList.remove("hd"); // $("header").css("margin-top", "0px");
+
+    navMain[0].classList.add("hd");
+  }
+}; // --------------------HEADER ONSCROLL--------------------
+// --------------------DROPDOWN HEADER--------------------
+
+
+$(document).on("mouseenter", "nav li:first-child", function () {
+  $(this).find(".dropdown-outer").show();
+});
+$(document).on("mouseleave", ".dropdown-outer:visible", function () {
+  $(this).hide();
+}); // --------------------DROPDOWN HEADER--------------------
+// --------------------OWL CAROUSEL--------------------
+
+$(".owl-carousel").owlCarousel({
+  items: 4,
+  margin: 15,
+  loop: true,
+  // center: true,
+  dots: false,
+  autoWidth: true,
+  // nav: true,
+  autoplay: true,
+  autoplayTimeout: 2000 // navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>']
+
+}); // --------------------OWL CAROUSEL--------------------
+
+/***/ }),
+
 /***/ "./resources/js/maps_tomtom.js":
 /*!*************************************!*\
   !*** ./resources/js/maps_tomtom.js ***!
@@ -47884,15 +47934,27 @@ if ($('#map').length > 0) {
 
 /***/ }),
 
+/***/ "./resources/sass/style.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/style.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!*****************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/style.scss ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\sass\style.scss */"./resources/sass/style.scss");
 
 
 /***/ }),

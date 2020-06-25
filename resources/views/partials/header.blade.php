@@ -1,21 +1,139 @@
-<header>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-      <a class="navbar-brand" href="{{ url('/home') }}">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/1200px-Airbnb_Logo_B%C3%A9lo.svg.png" width="150" height="50" class="d-inline-block align-top" alt="">
-      </a>
-      @if (Route::has('login'))
-          <div class="top-right links">
-              @auth
-                  <a href="{{ url('/home') }}">Home</a>
-              @else
-                  <button type="button" class="btn btn-outline-info"><a href="{{ route('login') }}">Accedi</a></button>
-
-                  @if (Route::has('register'))
-                      <button type="button" class="btn btn-outline-info"><a href="{{ route('register') }}">Registrati</a></button>
-                  @endif
-              @endauth
+<div class="hidden-header hd">
+      <div class="container">
+        <div class="upper-header">
+          <div id="logo">
+            <svg><use href="#airbnb"></use></svg>
+            <a href="{{route('home')}}"><h4>BoolBnb</h4></a>
           </div>
-      @endif
+
+          <nav>
+            <ul id="menu">
+              <li> <a href="#">Scopri di più <i class="fas fa-sort-down"></i></a>
+                <div class="dropdown-outer">
+                  <div class="dropdown-inner">
+                    <ul>
+                      <li> <a href="#">Chi siamo</a> </li>
+                      <li> <a href="#">Feedback</a> </li>
+                      <li> <a href="#">Reviews</a> </li>
+                      <li> <a href="#">Lingua</a> </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li> <a href="#">Assistenza</a> </li>
+              @guest
+              <li> <a href="{{ route('login') }}">Accedi</a> </li>
+              @if (Route::has('register'))
+                <li>
+              {{-- <div class="btn-container"> --}}
+                <button href="{{ route('register') }}" class="btn-base" type="button" name="button"><img src="img/conversation.svg" alt="">Registrati</button>
+              {{-- </div> --}}
+              </li>
+              @endif
+            </ul>
+          </nav>
+
+          @else
+            <nav>
+              <ul id="menu">
+            <li> <a href="#">{{ Auth::user()->name }} <i class="fas fa-sort-down"></i></a>
+              <div class="dropdown-outer">
+                <div class="dropdown-inner">
+                  <ul>
+                    <li> <a href="{{route('dashboard')}}">Dashboard</a> </li>
+                    <li> <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">Logout</a> </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                  </ul>
+                </div>
+              </ul>
+            </nav>
+          @endguest
+        </div>
       </div>
-    </nav>
-</header>
+    </div>
+  </div>
+
+    <header>
+      <div class="container">
+        <div class="upper-header">
+          <div id="logo">
+            <svg><use href="#airbnb"></use></svg>
+            <a href="{{route('home')}}"><h4>BoolBnb</h4></a>
+          </div>
+
+
+          <nav>
+            <ul id="menu">
+              <li> <a href="#">Scopri di più <i class="fas fa-sort-down"></i></a>
+                <div class="dropdown-outer">
+                  <div class="dropdown-inner">
+                    <ul>
+                      <li> <a href="#">Chi siamo</a> </li>
+                      <li> <a href="#">Feedback</a> </li>
+                      <li> <a href="#">Reviews</a> </li>
+                      <li> <a href="#">Lingua</a> </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li> <a href="#">Assistenza</a> </li>
+              @guest
+              <li> <a href="{{ route('login') }}">Accedi</a> </li>
+
+                @if (Route::has('register'))
+                  <li>
+                {{-- <div class="btn-container"> --}}
+                  <button href="{{ route('register') }}" class="btn-base" type="button" name="button"><img src="img/conversation.svg" alt="">Registrati</button>
+                {{-- </div> --}}
+                </li>
+                @endif
+
+            </ul>
+          </nav>
+
+          @else
+            <nav>
+              <ul id="menu">
+            <li> <a href="#">{{ Auth::user()->name }} <i class="fas fa-sort-down"></i></a>
+              <div class="dropdown-outer">
+                <div class="dropdown-inner">
+                  <ul>
+                    <li> <a href="{{route('dashboard')}}">Dashboard</a> </li>
+                    <li> <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">Logout</a> </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                  </ul>
+                </div>
+              </ul>
+            </nav>
+          @endguest
+            </ul>
+          </nav>
+        </div>
+
+        <div class="banner">
+          <div class="left">
+            <h1>I migliori immobili a portata di click</h1>
+            <p>BoolBnB ti aiuta a trovare le migliori soluzioni di alloggio</p>
+            <div class="cta clearfix">
+              <button class="btn-base" type="button" name="button"> <img src="img/google.svg" alt=""> Sign up with Google</button>
+              <p>or</p>
+              <button class="btn-base" type="button" name="button"> <img src="img/slack.svg" alt=""> Sign up with Slack</button>
+            </div>
+            <a href="#">or use your email address <i class="fas fa-arrow-right"></i></a>
+          </div>
+
+          <div class="right">
+            <img src="img/banner-img.jpg" alt="">
+          </div>
+        </div>
+
+      </div>
+    </header>

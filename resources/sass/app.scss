@@ -1,57 +1,67 @@
 
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import '~@tomtom-international/web-sdk-maps/dist/maps.css';
+// @import '~@tomtom-international/web-sdk-maps/dist/maps.css';
 // @import url('https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.57.0/maps/maps.css');
 
+// // Bootstrap
+// @import '~bootstrap/scss/bootstrap';
 
-@import '_reset';
-@import '_variables';
-@import '_common';
-@import '_mixins';
-@import 'partials/_header';
-@import 'partials/_main';
-@import 'partials/_footer';
+/*RESET*/
+@import "partials/_reset";
+// VARIABLES
+@import "partials/_variables";
+/*COMMON*/
+@import "partials/_common";
+
+/*HEADER*/
+@import "partials/_header";
+/*LOGO*/
+@import "partials/_logo";
+/*NAVBAR*/
+@import "partials/_navbar";
+/*BANNER*/
+@import "partials/_banner";
+
+/*MAIN*/
+@import "partials/_main";
+/*CARD*/
+@import "partials/_card";
+
+/*FOOTER*/
+@import "partials/_footer";
 
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+/*MESSAGE-CLOUD*/
+@import "partials/_message-cloud";
 
-//mappa
-#map {
-    height: 300px;
-    width: 450px;
-}
 
-.mapboxgl-marker {
-    width: 15px;
-    height: 15px;
-    background: red;
-    border-radius: 50%;
-}
+
+
 // -------------temporaneo-------------
-main{
-  img{
-    width: 500px;
-  }
-  .row{
-    padding-top: 30px;
-    .room-info{
-      #info{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        grid-gap: 5px;
-      }
-    }
-  }
-}
-
-.cards{
-  display: grid;
-grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-grid-gap: 5px;
-}
-
-.no-padding{
-  padding: 0;
-}
+// main{
+//   img{
+//     width: 500px;
+//   }
+//   .row{
+//     padding-top: 30px;
+//     .col-12 {
+//       .room-info{
+//         #info{
+//           display: grid;
+//           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//           grid-gap: 5px;
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// .cards{
+//   display: grid;
+// grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+// grid-gap: 5px;
+// }
+//
+// .no-padding{
+//   padding: 0;
+// }
 // -------------temporaneo-------------

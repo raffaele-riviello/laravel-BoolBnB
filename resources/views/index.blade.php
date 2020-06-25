@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
-@section('content')
+@section('style')
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@endsection
+
+@section('header')
+  @include('partials.header')
+@endsection
+
+@section('main')
   <div class="container">
     <div class="row">
       <h2>Risultati appartamenti per "{{$address}}"</h2>

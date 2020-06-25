@@ -1,0 +1,66 @@
+footer {
+  // height: 720px;
+  font-size: 0.8rem;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    // grid-template-areas:
+    // "section.one section.two section.three section-four";
+    grid-gap: 15px;
+    .first {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas:
+      "section.one section.two section.three section-four";
+      grid-gap: 15px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 30px;
+      h4{
+        text-transform: uppercase;
+      }
+      .section {
+        ul {
+          li {
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+    .second {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas:
+      "section.one section.two";
+      grid-gap: 15px;
+      padding-top: 30px;
+      .section.one {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "li li li li";
+        grid-gap: 15px;
+        small{
+
+        }
+        ul{
+          list-style-type: disc;
+          li{
+            display: inline-block;
+          }
+        }
+      }
+      .section.two {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "lang currency socials";
+        grid-gap: 15px;
+      }
+    }
+  }
+}
