@@ -24,6 +24,13 @@
               <div class="section">
                 <input name="address" type="search" placeholder="Inserisci una località" aria-label="Search">
               </div>
+                <input type="hidden" id="form-address">
+                <input type="hidden" id="form-address2">
+                <input type="hidden" id="form-city">
+                <input type="hidden" id="full-address-search">
+                <input type="hidden" id="form-lat" name="latitude">
+                <input type="hidden" id="form-lng" name="longitude">
+                <input type="hidden" id="form-zip">
               {{-- <div class="section">
                 <input name="address" type="search" placeholder="Inserisci un indirizzo" aria-label="Search">
               </div>
@@ -65,6 +72,7 @@
       <input name="address" class="form-control mr-sm-2" type="search" placeholder="Dove vuoi andare?" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
     </form> --}}
+    <script src="{{ asset('js/app.js') }}" defer></script>
 @endsection
 
 @section('footer')

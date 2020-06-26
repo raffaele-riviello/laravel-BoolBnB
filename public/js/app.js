@@ -47725,7 +47725,7 @@ var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/inde
     container: document.querySelector('#form-address'),
     templates: {
       value: function value(suggestion) {
-        return suggestion.name;
+        return suggestion.city;
       }
     }
   }).configure({
@@ -47737,11 +47737,16 @@ var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/inde
     document.querySelector('#form-zip').value = e.suggestion.postcode || '';
     document.querySelector('#form-lat').value = e.suggestion.latlng.lat || '';
     document.querySelector('#form-lng').value = e.suggestion.latlng.lng || '';
-    document.querySelector('#full-address').value = e.suggestion.name + ', ' + document.querySelector('#numero-civico').value + ', ' + e.suggestion.city + ', ' + e.suggestion.postcode;
-    console.log(document.querySelector('#form-address2').value);
+
+    if (document.querySelector('#full-address-search')) {
+      document.querySelector('#full-address-search').value = e.suggestion.name + ', ' + e.suggestion.city;
+    } else {
+      // document.querySelector('#full-address').value = e.suggestion.name + ', ' + document.querySelector('#numero-civico').value + ', ' + e.suggestion.city + ', ' + e.suggestion.postcode;
+      document.querySelector('#full-address').value = e.suggestion.name + ', ' + document.querySelector('#numero-civico').value + ', ' + e.suggestion.city + ', ' + e.suggestion.postcode;
+    }
   });
-  var lan = document.getElementById('#latitudine').innerHTML;
-  var lng = document.getElementById('#longitudine').innerHTML;
+  var lan = document.getElementById('#form-lat').innerHTML || '';
+  var lng = document.getElementById('#form-lng').innerHTML || '';
 })();
 
 /***/ }),

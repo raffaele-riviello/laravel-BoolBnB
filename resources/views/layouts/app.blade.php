@@ -30,6 +30,9 @@
 </head>
 
 <body>
+  {{-- <div class="loader-container">
+      <div class="loader"></div>
+  </div> --}}
   {{-- <div id="app"> --}}
     @yield('header')
 
@@ -40,6 +43,16 @@
         @yield('footer')
 
         @yield('svg')
+
+        {{-- PRELOADER --}}
+
+
+        {{-- <script>
+            $(window).on("load",function(){
+                $(".loader-container").fadeOut(2000);
+            });
+        </script> --}}
+        {{-- PRELOADER --}}
     {{-- </div> --}}
 </body>
 </html>

@@ -9,6 +9,7 @@ use App\Apartament;
 use App\Feature;
 use App\Photo;
 use App\Service;
+use Illuminate\Support\Facades\DB;
 // ---------importo i model che mi servono---------
 
 class GuestApartamentController extends Controller
@@ -20,17 +21,20 @@ class GuestApartamentController extends Controller
      */
     public function index()
     {
-
       // -----equivalente di Laravel per "$address = $_GET['address']"-----
       $address = request()->get('address');
-      // -----equivalente di Laravel per "$address = $_GET['address']"-----
-
-      // --------li filtro in base alla ricerca fatta dal guest--------
-      $apartaments = Apartament::where('address', 'like', '%' .  $address . '%')
-                ->get();
-      // --------li filtro in base alla ricerca fatta dal guest--------
-
-      return view('index', compact('apartaments', 'address'));
+      $lat= request()->get('latitude'); //your latitude
+      $lng= request()->get('longitude');//your longitude
+      $km = 20; //your search radius
+      $haversineSQL='( 6371 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat .') ) * sin( radians(latitude) ) ) )';
+      $apartaments = DB::table('apartaments')
+          ->select(DB::raw('id, title, description, cover_img, address, rooms_number, beds_number, bathrooms_number, size, latitude, longitude, '. $haversineSQL .' as distance'))
+          ->where('visible', '=', 1)
+          ->havingRaw('distance < ?' , [$km])
+          ->get();
+        // risposta dal db in formato json
+        // $response = response()->json($sortByDistance);
+        return view('index', compact('apartaments', 'address'));
     }
 
     /**

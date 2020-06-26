@@ -12,7 +12,7 @@
                 <div class="dropdown-outer">
                   <div class="dropdown-inner">
                     <ul>
-                      <li> <a href="#">Chi siamo</a> </li>
+                      <li> <a href="{{route('chisiamo')}}">Chi siamo</a> </li>
                       <li> <a href="#">Feedback</a> </li>
                       <li> <a href="#">Reviews</a> </li>
                       <li> <a href="#">Lingua</a> </li>
@@ -26,7 +26,7 @@
               @if (Route::has('register'))
                 <li>
               {{-- <div class="btn-container"> --}}
-                <button href="{{ route('register') }}" class="btn-base" type="button" name="button"><img src="{{asset('/img/conversation.svg')}}" alt="">Registrati</button>
+              <a href="{{ route('register') }}"><button class="btn-base" type="button" name="button"><img src="{{asset('/img/conversation.svg')}}" alt="">Registrati</button></a>
               {{-- </div> --}}
               </li>
               @endif

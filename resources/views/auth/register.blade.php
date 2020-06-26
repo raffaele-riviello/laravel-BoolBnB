@@ -79,3 +79,7 @@
     </div>
 </div>
 @endsection
+
+@section('svg')
+  @include('partials.svg_logo')
+@endsection

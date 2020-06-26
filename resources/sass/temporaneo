@@ -1,138 +1,135 @@
-main{
-  .section-pink.one{
-    padding-bottom: 0;
-    .container{
-      border-bottom: 1px solid #bdb5af;
-      img{
-        width: 280px;
+<footer>
+  <div class="container">
+    <div class="first">
+      <div class="section one">
+        <h4>Informazioni</h4>
+        <ul>
+          <li> <a href="#">Diversità e appartenenza</a> </li>
+          <li> <a href="#">Accessibilità</a> </li>
+          <li> <a href="#">Affidabilità e sicurezza</a> </li>
+          <li> <a href="#">Airbnb Citizen</a> </li>
+          <li> <a href="#">Olimpiadi</a> </li>
+          <li> <a href="#">Newsroom</a> </li>
+        </ul>
+      </div>
+      <div class="section two">
+        <h4>Community</h4>
+        <ul>
+          <li> <a href="#">Airbnb Magazine</a> </li>
+          <li> <a href="#">Airbnb Associates</a> </li>
+          <li> <a href="#">Airbnb for Work</a> </li>
+          <li> <a href="#">Invita degli amici</a> </li>
+          <li> <a href="#">Opportunità di lavoro</a> </li>
+        </ul>
+      </div>
+      <div class="section three">
+        <h4>Ospita</h4>
+        <ul>
+          <li> <a href="#">Diventa un host</a> </li>
+          <li> <a href="#">Offri un'esperienza online</a> </li>
+          <li> <a href="#">Messaggio dal CEO Brian Chesky</a> </li>
+          <li> <a href="#">Affittare responsabilmente</a> </li>
+          <li> <a href="#">Open Homes</a> </li>
+          <li> <a href="#">Centro risorse</a> </li>
+          <li> <a href="#">Community Center</a> </li>
+        </ul>
+      </div>
+      <div class="section four">
+        <h4>Assistenza</h4>
+        <ul>
+          <li> <a href="#">Aggiornamenti sulla pandemia di COVID-19</a> </li>
+          <li> <a href="#">Centro Assistenza</a> </li>
+          <li> <a href="#">Opzioni di cancellazione</a> </li>
+          <li> <a href="#">Servizio di assistenza di quartiere</a> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="second">
+      <div class="section one">
+        <small>© 2020 Airbnb, Inc. All rights reserved</small>
+        <ul>
+          <li> <a href="#">Privacy</a> </li>
+          <li> <a href="#">Termini</a> </li>
+          <li> <a href="#">Mappa del sito</a> </li>
+          <li> <a href="#">Dettagli dell'azienda</a> </li>
+        </ul>
+      </div>
+      <div class="section two">
+        <div class="lang"> <i class="fas fa-globe"></i> Italiano (IT) </div>
+        <div class="currency"> € EUR</div>
+        <div class="socials">
+          <span class="facebook"> <i class="fab fa-facebook-f"></i> </span>
+          <span class="twitter"> <i class="fab fa-twitter"></i> </span>
+          <span class="instagram"> <i class="fab fa-instagram"></i> </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+footer {
+  // height: 720px;
+  font-size: 0.8rem;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    // grid-template-areas:
+    // "section.one section.two section.three section-four";
+    grid-gap: 15px;
+    .first {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas:
+      "section.one section.two section.three section-four";
+      grid-gap: 15px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 30px;
+      h4{
+        text-transform: uppercase;
       }
-    }
-  }
-  .section-pink.two{
-    padding-bottom: 0;
-    .container{
-      .card:last-child{
-        @extend .card;
-        #illustration-mini{
-          width: 70px;
-        }
-      }
-      // border-bottom: 1px solid #bdb5af;
-      img{
-        width: 280px;
-      }
-    }
-  }
-  .section-white.three{
-    padding-bottom: 0;
-    .container{
-      .lft{
-        height: 470px;
-        .max{
-          left: -30%;
-        }
-      }
-    }
-  }
-  .section-white.four{
-    padding-bottom: 0;
-    overflow: hidden;
-    .container{
-      .rgt{
-        height: 470px;
-        .max{
-          right: -30%;
-        }
-      }
-    }
-  }
-  .section-white.five{
-    padding-bottom: 0;
-    .container{
-      .lft{
-        height: 470px;
-        .max{
-          left: -30%;
-        }
-      }
-    }
-  }
-  .section-white.six{
-    overflow: hidden;
-    .container{
-      .rgt{
-        height: 470px;
-        .max{
-          right: -30%;
-        }
-      }
-    }
-  }
-  .section-pink.seven{
-    padding-bottom: 50px;
-    .container{
-      h2{
-        font-size: 40px;
-        line-height: 60px;
-      }
-      .blockquote{
-        width: 630px;
-        height: 460px;
-        background: $primary_color_1;
-        padding: 40px;
-        border: 1px solid lightgrey;
-        border-radius: 5px;
-        position: relative;
-        p{
-          line-height: 25px;
-          margin-bottom: 20px;
-        }
-        .img{
-          position: absolute;
-          img{
-            width: 38px;
-          }
-          .names{
-            float: right;
-            text-align: left;
-            margin-left: 10px;
-            padding-top: 5px;
-            p{
-              font-size: 12px;
-              line-height: 15px;
-              margin-bottom: 0;
-            }
+      .section {
+        ul {
+          li {
+            padding: 10px 0;
           }
         }
-        &::before{
-          font-family: "FontAwesome";
-          content: "\f10d";
-          font-weight: 900;
-          display: block;
-          position: absolute;
-          top: -25px;
-          left: 0px;
-          font-size: 40px;
-          cursor: pointer;
-          color: $buttons_color;
-        }
       }
-      .cta{
-        margin-bottom: 20px;
-        button{
-          float: left;
-          background: $buttons_color;
-          color: $primary_color_1;
-          &:hover{
-            background: $buttons_color_hover;
+    }
+    .second {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas:
+      "section.one section.two";
+      grid-gap: 15px;
+      padding-top: 30px;
+      .section.one {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "li li li li";
+        grid-gap: 15px;
+        small{
+
+        }
+        ul{
+          list-style-type: disc;
+          li{
+            display: inline-block;
           }
         }
-        p{
-          float: left;
-          font-size: 12px;
-          margin: 0 20px;
-          line-height: 35px;
-        }
+      }
+      .section.two {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "lang currency socials";
+        grid-gap: 15px;
       }
     }
   }

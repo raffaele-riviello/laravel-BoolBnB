@@ -122,3 +122,10 @@ Route::namespace('Admin')
         return view('admin.apartaments.cart', compact('token'));
     })->name('cart.apartament');
 });
+
+// Rotta chi siamo
+Route::get('/chisiamo', function () {
+
+    return view('chi-siamo');
+
+})->name('chisiamo');
