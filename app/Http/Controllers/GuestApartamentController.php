@@ -27,8 +27,9 @@ class GuestApartamentController extends Controller
       $lng= request()->get('longitude');//your longitude
       $km = 20; //your search radius
       $haversineSQL='( 6371 * acos( cos( radians(' . $lat . ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' . $lng . ') ) + sin( radians(' . $lat .') ) * sin( radians(latitude) ) ) )';
+
       $apartaments = DB::table('apartaments')
-          ->select(DB::raw('id, title, description, cover_img, address, rooms_number, beds_number, bathrooms_number, size, latitude, longitude, '. $haversineSQL .' as distance'))
+          ->select(DB::raw('id, title, price, description, cover_img, address, rooms_number, beds_number, bathrooms_number, size, latitude, longitude, '. $haversineSQL .' as distance'))
           ->where('visible', '=', 1)
           ->havingRaw('distance < ?' , [$km])
           ->get();

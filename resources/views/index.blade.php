@@ -1,3 +1,10 @@
+<style>
+        #indexmap {
+          height: 500px;
+          width: 500px;
+      }
+</style>
+
 @extends('layouts.app')
 
 @section('style')
@@ -20,14 +27,14 @@
                 <div class="img-card">
                   <img src="{{asset('storage/'  . $apartament->cover_img)}}" class="card-img-top" alt="nome immagine">
                 </div>
-                <div class="card-body">
+                <div class="card-body" data-lan="{{$apartament->latitude}}" data-lng="{{$apartament->longitude}}">
                     <h2>{{$apartament->title}}</h2>
                   <p class="card-text">{!!$apartament->description!!}</p>
-                  <div class="caratteristiche">
+                  {{-- <div class="caratteristiche">
                     @foreach ($apartament->features as $feature)
                       <span>{{$feature->name}}</span>
                     @endforeach
-                  </div>
+                  </div> --}}
                   <p>Prezzo: {{$apartament->price}}€</p>
                 </div>
               </div>
@@ -36,10 +43,34 @@
         </div>
       </div>
       <div class="mappa">
-        <iframe width="450" height="720" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openlinkmap.org/small.php?layers=M&lat=4178236&lon=12342500&zoom=1" style="border: 1px solid black"></iframe>
+        <div id="indexmap">
+
+        </div>
       </div>
     </div>
   </div>
+
+  <script>
+    $(document).ready(function () {
+            var queryLngLat = [{{request()->get('longitude')}}, {{request()->get('latitude')}}];
+            console.log(queryLngLat);
+            var indexmap = tt.map({
+                container: 'indexmap',
+                key: 'gFFCW4AFnFwAIM5ZWPG6Sew8JPYhCY0i',
+                style: 'tomtom://vector/1/basic-main',
+                center: queryLngLat,
+                zoom: 12
+            });
+            // new tt.Marker().setLngLat(queryLngLat).addTo(indexmap);
+            var locations = [];
+            $( ".card-body" ).each(function() {
+              locations.push($( this ).data('lng'), + $( this ).data('lan'));
+            });
+            for (var i = 0; i < locations.length; i++) {
+                new tt.Marker().setLngLat([locations[i],locations[i+1]]).addTo(indexmap);
+            }
+    });
+    </script>
 @endsection
 
 @section('svg')

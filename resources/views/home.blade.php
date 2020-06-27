@@ -22,15 +22,26 @@
           <form class="form-inline" action="{{route('results')}}">
             <div class="search-bar">
               <div class="section">
-                <input name="address" type="search" placeholder="Inserisci una località" aria-label="Search">
+                <input class="btn-algolia" type="search"  id="form-address">
               </div>
-                <input type="hidden" id="form-address">
-                <input type="hidden" id="form-address2">
-                <input type="hidden" id="form-city">
-                <input type="hidden" id="full-address-search">
-                <input type="hidden" id="form-lat" name="latitude">
-                <input type="hidden" id="form-lng" name="longitude">
-                <input type="hidden" id="form-zip">
+              <div class="section">
+                <input name="address" type="hidden" id="full-address-search" readonly="readonly">
+              </div>
+                <input class="nascosto" placeholder="Inserisci una località" aria-label="Search">
+                <input class="nascosto" id="form-address2">
+                <input class="nascosto" id="form-city">
+                <input class="nascosto" id="form-lat" name="latitude">
+                <input class="nascosto" id="form-lng" name="longitude">
+                <input class="nascosto" id="form-zip">
+                <style media="screen">
+                .nascosto{
+                  display: none;
+                }
+                .btn-algolia{
+                  background: none;
+                  
+                }
+                </style>
               {{-- <div class="section">
                 <input name="address" type="search" placeholder="Inserisci un indirizzo" aria-label="Search">
               </div>

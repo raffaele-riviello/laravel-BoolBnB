@@ -160,7 +160,7 @@ a:hover {
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px #ccc;
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1px;
 }
 
@@ -208,6 +208,10 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.nascosto {
+  display: none;
 }
 
 /*HEADER*/
