@@ -53,10 +53,10 @@ class ApartamentController extends Controller
     public function create()
     {
         $features = Feature::all();
-        $photos = Photo::all();
+        // $photos = Photo::all();
         $services = Service::all();
 
-        return view('admin.apartaments.create', compact('features', 'photos', 'services'));
+        return view('admin.apartaments.create', compact('features', 'services'));
     }
 
     /**
@@ -125,10 +125,10 @@ class ApartamentController extends Controller
     {
       $apartament = Apartament::findOrFail($id);
       $features = Feature::all();
-      $photos = Photo::all();
+      // $photos = Photo::all();
       $services = Service::all();
 
-      return view('admin.apartaments.edit', compact('apartament', 'features', 'photos', 'services'));
+      return view('admin.apartaments.edit', compact('apartament', 'features', 'services'));
     }
 
     /**
@@ -185,9 +185,9 @@ class ApartamentController extends Controller
         $apartament = Apartament::findOrFail($id);
 
         // vado a cancellare anche tutti i collegamenti nelle tabelle pivot
-        // $apartament->features()->detach();
+        $apartament->features()->detach();
         // $apartament->photos()->detach();
-        // $apartament->services()->detach();
+        $apartament->services()->detach();
         // vado a cancellare anche tutti i collegamenti nelle tabelle pivot
 
         $deleted = $apartament->delete();
