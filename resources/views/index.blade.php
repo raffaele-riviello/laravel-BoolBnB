@@ -59,7 +59,8 @@
                 key: 'gFFCW4AFnFwAIM5ZWPG6Sew8JPYhCY0i',
                 style: 'tomtom://vector/1/basic-main',
                 center: queryLngLat,
-                zoom: 12
+                zoom: 12,
+                pitch: 45
             });
             // new tt.Marker().setLngLat(queryLngLat).addTo(indexmap);
             var locations = [];

@@ -47918,8 +47918,9 @@ if ($('#map').length > 0) {
   element.id = 'marker';
   var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
     element: element
-  });
-  marker.setLngLat(coordinates).addTo(map); // $('#map').on('shown.bs.modal', function() {
+  }); // marker.setLngLat(coordinates).addTo(map);
+
+  new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(coordinates).addTo(map); // $('#map').on('shown.bs.modal', function() {
   // map.resize();
   // });
 }
@@ -47939,6 +47940,17 @@ if ($('#map').length > 0) {
 
 /***/ }),
 
+/***/ "./resources/sass/myheader.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/myheader.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/style.scss":
 /*!***********************************!*\
   !*** ./resources/sass/style.scss ***!
@@ -47951,15 +47963,16 @@ if ($('#map').length > 0) {
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/style.scss ***!
-  \*****************************************************************************************/
+/*!************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/style.scss ./resources/sass/myheader.scss ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\sass\style.scss */"./resources/sass/style.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\sass\style.scss */"./resources/sass/style.scss");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\sass\myheader.scss */"./resources/sass/myheader.scss");
 
 
 /***/ }),

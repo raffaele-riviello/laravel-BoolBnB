@@ -21,7 +21,9 @@ if ($('#map').length > 0) {
     var marker = new tt.Marker({
         element: element,
     });
-    marker.setLngLat(coordinates).addTo(map);
+    // marker.setLngLat(coordinates).addTo(map);
+    new tt.Marker().setLngLat(coordinates).addTo(map);
+
 
     // $('#map').on('shown.bs.modal', function() {
     // map.resize();
