@@ -47969,10 +47969,10 @@ if ($('#map').length > 0) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\sass\style.scss */"./resources/sass/style.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Boolean\PHP\laravel-BoolBnB\resources\sass\myheader.scss */"./resources/sass/myheader.scss");
+__webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\sass\style.scss */"./resources/sass/style.scss");
+module.exports = __webpack_require__(/*! C:\Users\Ionut\Desktop\progetto_finale_quarto\laravel-BoolBnB\resources\sass\myheader.scss */"./resources/sass/myheader.scss");
 
 
 /***/ }),

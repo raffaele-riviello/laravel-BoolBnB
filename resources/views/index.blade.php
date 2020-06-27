@@ -1,6 +1,6 @@
 <style>
         #indexmap {
-          height: 500px;
+          height: 700px;
           width: 500px;
       }
 </style>
@@ -19,7 +19,7 @@
   <div class="container">
     <div class="row index-guests">
       <div class="cards-outer">
-          <h2>Risultati appartamenti per "{{$address}}"</h2>
+          <h2>Risultati appartamenti per <br> "{{$address}}"</h2>
         <div class="cards">
           @foreach ($apartaments as $apartament)
             <a href="{{route('results.apartament', $apartament->id)}}">

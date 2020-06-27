@@ -501,7 +501,7 @@ nav li a {
 
 .row.index-guests .cards-outer {
   width: 100%;
-  padding-right: 450px;
+  padding-right: 550px;
   padding-top: 75px;
 }
 
@@ -517,6 +517,7 @@ nav li a {
 }
 
 .row.index-guests .cards-outer .cards .card-index {
+  margin-right: 50px;
   display: grid;
   grid-template-columns: 2fr 4fr;
   grid-gap: 15px;
