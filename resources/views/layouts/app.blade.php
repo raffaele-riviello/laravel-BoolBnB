@@ -36,9 +36,9 @@
 </head>
 
 <body>
-  {{-- <div class="loader-container">
+  <div class="loader-container">
       <div class="loader"></div>
-  </div> --}}
+  </div>
   {{-- <div id="app"> --}}
     @yield('header')
 
@@ -53,11 +53,11 @@
         {{-- PRELOADER --}}
 
 
-        {{-- <script>
+        <script>
             $(window).on("load",function(){
                 $(".loader-container").fadeOut(2000);
             });
-        </script> --}}
+        </script>
         {{-- PRELOADER --}}
     {{-- </div> --}}
 </body>

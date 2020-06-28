@@ -34,12 +34,13 @@
                 <input class="nascosto" id="form-lng" name="longitude">
                 <input class="nascosto" id="form-zip">
                 <style media="screen">
-                .nascosto{
+                body > main > div > div.row.half-padding > form > div > div:nth-child(1) > span > button.ap-input-icon.ap-icon-pin{
+                  background: none;
+                }
+                button.ap-input-icon.ap-icon-clear{
                   display: none;
                 }
-                .btn-algolia{
-                  background: none;
-                  
+
                 }
                 </style>
               {{-- <div class="section">
@@ -67,7 +68,7 @@
               <a href="{{route('results.apartament', $appartamentoSponsorizzato->id)}}">
                 <div class="card-home">
                   <div class="cover">
-                    <img src="{{$appartamentoSponsorizzato->cover_img}}" alt="">
+                    <img src="{{asset('storage/'  . $appartamentoSponsorizzato->cover_img)}}" alt="">
                   </div>
                   <div class="descrizione">
                     <h4>{{$appartamentoSponsorizzato->title}}</h4>

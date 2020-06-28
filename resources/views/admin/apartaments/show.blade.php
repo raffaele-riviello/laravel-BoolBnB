@@ -1,86 +1,237 @@
-<style>
+{{-- <style>
         #map {
           height: 500px;
           width: 500px;
       }
-</style>
-
+</style> --}}
 @extends('layouts.app')
 
-@section('bootstrap')
-  <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.58.0/maps/maps.css'>
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+@section('style')
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @endsection
 
 @section('header')
-  @include('partials.headerBasso')
+  @include('partials.headerBassoFisso')
 @endsection
 
 @section('main')
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="row">
-          <div class="">
-            <h1>{{$apartament->title}}
-              @if ($apartament->visible == 0)
-                <svg class="bi bi-eye-slash-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.79 12.912l-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/>
-                  <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708l-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829z"/>
-                  <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z"/>
-                </svg>
-              @else
-                <svg class="bi bi-eye-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                  <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                </svg>
-              @endif
-            </h1>
-            <p>{{$apartament->address}}</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 no-padding">
-            <div class="description">
-              <h3>Descrizione</h3>
-              <p>{!!$apartament->description!!}</p>
+  <div class="mybody">
+    <div class="container">
+      <div class="about-section">
+            <div class="inner-container">
+                <h1>{{$apartament->title}}</h1>
+                <small>{{$apartament->address}}</small>
+                <p class="text">
+                  {!!$apartament->description!!}
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus velit ducimus, enim inventore earum, eligendi nostrum pariatur necessitatibus eius dicta a voluptates sit deleniti autem error eos totam nisi neque voluptates sit deleniti autem error eos totam nisi neque.
+                </p>
+                <div class="skills">
+                  <div> <p>Numero stanze: {{$apartament->rooms_number}}</p>  </div>
+                  <div> <p>Numero di bagni: {{$apartament->bathrooms_number}}</p>  </div>
+                  <div> <p>Numero letti: {{$apartament->beds_number}}</p>  </div>
+                  <div> <p>Dimensioni: {{$apartament->size}}mq</p>  </div>
+                  <div> <p>Prezzo: {{$apartament->price}}€</p>  </div>
+                </div>
+                {{-- <div class="skills">
+                  <div> <p>Numero stanze: {{$apartament->rooms_number}}</p>  </div>
+                  <div> <p>Numero di bagni: {{$apartament->bathrooms_number}}</p>  </div>
+                  <div> <p>Numero letti: {{$apartament->beds_number}}</p>  </div>
+                  <div> <p>Dimensioni: {{$apartament->size}}mq</p>  </div>
+                  <div> <p>Prezzo: {{$apartament->price}}€</p>  </div>
+                </div> --}}
+                <div class="apartament-map">
+                  <div id="map" data-long="{{$apartament->longitude}}" data-lat="{{$apartament->latitude}}"></div>
+                </div>
             </div>
-          </div>
-          <div class="col-6 no-padding">
-            <img src="{{asset('storage/'  . $apartament->cover_img)}}" alt="{{$apartament->title}}">
-          </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="room-info">
-              <div class="row">
-                <p>Informazioni stanza</p>
-              </div>
-              <div class="row" id="info">
-                <div> <p>Numero stanze: {{$apartament->rooms_number}}</p>  </div>
-                <div> <p>Numero di bagni: {{$apartament->bathrooms_number}}</p>  </div>
-                <div> <p>Numero letti: {{$apartament->beds_number}}</p>  </div>
-                <div> <p>Dimensioni: {{$apartament->size}}mq</p>  </div>
-                <div> <p>Prezzo: {{$apartament->price}}€</p>  </div>
-                <div> <p id="latitudine">{{$apartament->latitude}}</p>  </div>
-                <div> <p id="longitudine">{{$apartament->longitude}}</p>  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <section class="apartament-map">
-             <h5 class="apartament-features-title my-4">Mappa</h5>
-             {{-- <div id="map" data-long="12.4764" data-lat="41.9107">        </div> --}}
-             <div id="map" data-long="{{$apartament->longitude}}" data-lat="{{$apartament->latitude}}">        </div>
-             {{-- <iframe width="800" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openlinkmap.org/small.php?layers=M&lat={{$apartament->latitude}}&lon={{$apartament->longitude}}&zoom=18" style="border: 1px solid black"></iframe> --}}
-          </section>
-        </div>
-      </div>
+
     </div>
   </div>
-  </div>
+
+    <style media="screen">
+
+    .mybody{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #f1f1f1; */
+}
+
+.about-section{
+  background: url('{{asset('storage/'  . $apartament->cover_img)}}') no-repeat left;
+  object-fit: cover;
+  background-size: 55%;
+  background-color: #fdfdfd;
+  overflow: hidden;
+  padding: 100px 0;
+  position: relative;
+}
+
+.apartament-map{
+  width: 360px;
+  height: 160px;
+  margin-top: 50px;
+}
+
+.inner-container{
+  width: 55%;
+  float: right;
+  background-color: #ecf0f1;
+  padding: 150px;
+  border-radius: 10px;
+}
+
+.inner-container h1{
+  /* margin-bottom: 30px; */
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.text{
+  font-size: 13px;
+  color: #545454;
+  line-height: 30px;
+  text-align: justify;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.skills{
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width:1200px){
+  .inner-container{
+      padding: 80px;
+  }
+}
+
+@media screen and (max-width:1000px){
+  .about-section{
+      background-size: 100%;
+      padding: 100px 40px;
+  }
+  .inner-container{
+      width: 100%;
+  }
+}
+
+@media screen and (max-width:600px){
+  .about-section{
+      padding: 0;
+  }
+  .inner-container{
+      padding: 60px;
+  }
+}
+
+/* form */
+.login-form.formdk{
+  width: 300px;
+  background: #f1f1f1;
+  height: 450px;
+  padding: 80px 40px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.login-form.formdk h1{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.txtb{
+  position: relative;
+  z-index: 2;
+  margin: 15px 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #fe5b5f 0%;
+}
+
+.txtb input.inputdk{
+  font-size: 14px;
+  color: #333;
+  border: none;
+  // width: 100%;
+  outline: none;
+  background: none;
+  padding: 0 5px;
+  // height: 40px;
+}
+
+.txtb span::before{
+  content: attr(data-placeholder);
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  z-index: -1;
+  transition: .5s;
+}
+
+.txtb span::after{
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(120deg,#fe5b5f,#fe5b5f60,#fe5b5f);
+  transition: .5s;
+}
+
+.focus + span::before{
+  top: -5px;
+}
+.focus + span::after{
+  width: 50%;
+}
+
+.logbtn.inputdk{
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  background: linear-gradient(120deg,#fe5b5f,#fe5b5f60,#fe5b5f);
+  background-size: 200%;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.logbtn.inputdk:hover{
+  background-position: right;
+}
+
+.bottom-text{
+  margin-top: 5px;
+  text-align: center;
+  font-size: 13px;
+  a{
+    padding: 0;
+    margin: 0;
+    background: none;
+  }
+}
+
+.acaso{
+  font-size: 12px;
+  float: right;
+  margin-right: 60px;
+  margin-bottom: 30px;
+}
+    </style>
+@endsection
+
+@section('footer')
+  @include('partials.footer')
 @endsection
 
 @section('svg')

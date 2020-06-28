@@ -7,12 +7,12 @@
           </div> <br>
           <div class="social-mediap">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+            {{-- <a href="#"><i class="fab fa-twitter"></i></a> --}}
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            {{-- <a href="#"><i class="fab fa-linkedin-in"></i></a> --}}
           </div>
-          <p class="rights-text">© 2020 Created By Team5 All Rights Reserved.</p>
+          <p class="rights-text">© 2020 Created By Team5 | Class10 | Boolean.Careers  All Rights Reserved.</p>
         </div>
 
         <div class="right-colp">

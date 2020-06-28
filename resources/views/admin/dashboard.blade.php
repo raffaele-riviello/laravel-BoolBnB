@@ -17,10 +17,10 @@
 <div class="container dashboard">
   <div class="card">
     <div class="upper-section">
-      <img src="{{asset('/img/dashboard-back.jpg')}}" alt="">
+      <img src="{{asset('/img/dashboard-background.jpg')}}" alt="dashboard">
       <div class="mini-header">
         <div class="left"> <p>Benvenuto {{Auth::user()->name}}</p> </div>
-        <div class="right"> <p>{{Carbon::now()}}</p> </div>
+        <div class="right"> <p>{{Carbon::now()->isoFormat('DD-MM-YYYY')}}</p> </div>
       </div>
       <div class="statistics">
 

@@ -160,7 +160,7 @@ a:hover {
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px #ccc;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 3fr 0fr 1fr;
   grid-gap: 1px;
 }
 
@@ -250,8 +250,8 @@ header .container .upper-header li a i {
 }
 
 header .container .upper-header .dropdown-outer {
-  -webkit-animation: a 0.5s 1;
-          animation: a 0.5s 1;
+  -webkit-animation: a 0s 1;
+          animation: a 0s 1;
   display: none;
   position: absolute;
 }
